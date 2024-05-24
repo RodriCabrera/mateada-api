@@ -1,16 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Meetup } from './meetup.entity';
 
 @Injectable()
 export class MeetupsService {
-  constructor(
-    @InjectRepository(Meetup)
-    private meetupRepository: Repository<Meetup>,
-  ) {}
+  constructor() {} // private meetupRepository: Repository<Meetup>, // @InjectRepository(Meetup)
 
-  async findAll(): Promise<Meetup[]> {
-    return this.meetupRepository.find();
+  async findAll() {
+    // return this.meetupRepository.find();
   }
 }

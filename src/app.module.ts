@@ -1,12 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MeetupsModule } from './meetups/meetups.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { DATABASE_CONFIG } from './database/constants';
-import { DataSource } from 'typeorm';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [MeetupsModule, TypeOrmModule.forRoot(DATABASE_CONFIG)],
+  imports: [MeetupsModule, MongooseModule.forRoot(process.env.MONGO_URL)],
 })
-export class AppModule {
-  constructor(private dataSource: DataSource) {}
-}
+export class AppModule {}

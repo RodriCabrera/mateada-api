@@ -1,7 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Put } from '@nestjs/common';
 import { MeetupsService } from './meetups.service';
 import { CreateMeetupDto } from './dtos/create-meetup.dto';
-import { Meetup } from './meetup.entity';
 
 @Controller('meetups')
 export class MeetupsController {
@@ -13,8 +12,8 @@ export class MeetupsController {
   // }
 
   @Get()
-  async findAll(): Promise<Meetup[]> {
-    return this.meetupsService.findAll();
+  async findAll() {
+    // return this.meetupsService.findAll();
   }
 
   @Get(':id')
