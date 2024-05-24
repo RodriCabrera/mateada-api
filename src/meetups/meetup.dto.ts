@@ -1,4 +1,5 @@
 import { IsDateString, IsString } from 'class-validator';
+import { PartialType } from '@nestjs/mapped-types';
 
 export class CreateMeetupDto {
   @IsString()
@@ -13,3 +14,5 @@ export class CreateMeetupDto {
   @IsDateString()
   date: Date;
 }
+
+export class UpdateMeetupDto extends PartialType(CreateMeetupDto) {}

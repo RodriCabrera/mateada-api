@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Meetup } from './schemas/meetup.schema';
 import { Model } from 'mongoose';
-import { CreateMeetupDto } from './dtos/create-meetup.dto';
+import { Meetup } from './schemas/meetup.schema';
+import { CreateMeetupDto, UpdateMeetupDto } from './meetup.dto';
 
 @Injectable()
 export class MeetupsService {
@@ -21,7 +21,7 @@ export class MeetupsService {
     return this.meetupModel.findById(id).exec();
   }
 
-  async update(id: string, updateMeetupDto: CreateMeetupDto): Promise<Meetup> {
+  async update(id: string, updateMeetupDto: UpdateMeetupDto): Promise<Meetup> {
     return this.meetupModel
       .findByIdAndUpdate(id, updateMeetupDto, { new: true })
       .exec();

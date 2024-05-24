@@ -8,7 +8,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { MeetupsService } from './meetups.service';
-import { CreateMeetupDto } from './dtos/create-meetup.dto';
+import { CreateMeetupDto, UpdateMeetupDto } from './meetup.dto';
 
 @Controller('meetups')
 export class MeetupsController {
@@ -30,7 +30,7 @@ export class MeetupsController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateMeetupDto: CreateMeetupDto) {
+  update(@Param('id') id: string, @Body() updateMeetupDto: UpdateMeetupDto) {
     return this.meetupsService.update(id, updateMeetupDto);
   }
 
