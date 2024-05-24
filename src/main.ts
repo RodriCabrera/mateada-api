@@ -19,7 +19,6 @@ async function bootstrap() {
     .setTitle('Mateada API')
     .setDescription('The Mateada API description')
     .setVersion('1.0')
-    .addTag('mateada')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
