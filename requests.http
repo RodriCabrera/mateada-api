@@ -3,10 +3,25 @@ Content-Type: application/json
 
 {
   "title": "Meetup 1",
-  "description": "This is the first meetup",
-  "date": "2021-01-01T00:00:00.000Z"
+  "description": "Meetup with extra details",
+  "date": "2021-01-01T00:00:00.000Z",
+  "categories": ["free", "fun"],
+  "age": 18,
+  "location": {
+    "name": "Location 1",
+    "address": "123 Main St",
+    "city": "Springfield",
+    "state": "IL",
+    "zip": "62701"
+  }
 }
-###
+### GET ALL MEETUPS
 GET http://localhost:8080/meetups HTTP/1.1
-###
+
+### GET MEETUP BY ID
 GET http://localhost:8080/meetups/6650c048c76f4aba38a189f1 HTTP/1.1
+
+### DELETE MEETUP BY ID
+DELETE http://localhost:8080/meetups/6650c09dc76f4aba38a189f6 HTTP/1.1
+
+###

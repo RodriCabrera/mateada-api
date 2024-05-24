@@ -26,4 +26,7 @@ export class MeetupsService {
       .findByIdAndUpdate(id, updateMeetupDto, { new: true })
       .exec();
   }
+  async delete(id: string): Promise<Meetup> {
+    return this.meetupModel.findByIdAndDelete(id).exec();
+  }
 }

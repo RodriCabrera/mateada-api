@@ -20,6 +20,9 @@ export class Meetup {
   @Prop({ type: String, required: false })
   description: string;
 
+  @Prop({ type: [String], required: false })
+  categories: string[];
+
   @Prop({ type: String, default: MeetupStatus.PENDING })
   status: MeetupStatus;
 }

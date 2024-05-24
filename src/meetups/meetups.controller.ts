@@ -31,11 +31,11 @@ export class MeetupsController {
 
   @Put(':id')
   update(@Param('id') id: string, @Body() updateMeetupDto: CreateMeetupDto) {
-    return `Updating a meetup with id: ${id} to have title: ${updateMeetupDto.title}`;
+    return this.meetupsService.update(id, updateMeetupDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return `Deleting a meetup with id: ${id}`;
+    return this.meetupsService.delete(id);
   }
 }
