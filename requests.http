@@ -1,0 +1,12 @@
+POST http://localhost:8080/meetups HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Meetup 1",
+  "description": "This is the first meetup",
+  "date": "2021-01-01T00:00:00.000Z"
+}
+###
+GET http://localhost:8080/meetups HTTP/1.1
+###
+GET http://localhost:8080/meetups/6650c048c76f4aba38a189f1 HTTP/1.1

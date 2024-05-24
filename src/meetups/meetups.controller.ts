@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { MeetupsService } from './meetups.service';
 import { CreateMeetupDto } from './dtos/create-meetup.dto';
 
@@ -6,19 +14,19 @@ import { CreateMeetupDto } from './dtos/create-meetup.dto';
 export class MeetupsController {
   constructor(private readonly meetupsService: MeetupsService) {}
 
-  // @Post()
-  // create(@Body() createMeetupDto: CreateMeetupDto) {
-  //   return this.meetupsService.create(createMeetupDto);
-  // }
+  @Post()
+  create(@Body() createMeetupDto: CreateMeetupDto) {
+    return this.meetupsService.create(createMeetupDto);
+  }
 
   @Get()
   async findAll() {
-    // return this.meetupsService.findAll();
+    return this.meetupsService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return `Finding a meetup with id: ${id}`;
+    return this.meetupsService.findOne(id);
   }
 
   @Put(':id')
