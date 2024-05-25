@@ -27,7 +27,11 @@ export class MeetupsService {
       .exec();
   }
 
-  async delete(id: string): Promise<Meetup> {
-    return this.meetupModel.findByIdAndDelete(id).exec();
+  async delete(id: string): Promise<string> {
+    const meetup = await this.meetupModel.findByIdAndDelete(id).exec();
+    if (!meetup) {
+      throw new Error('Meetup not found');
+    }
+    return 'Meetup deleted successfully';
   }
 }
