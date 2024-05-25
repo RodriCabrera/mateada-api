@@ -1,3 +1,5 @@
+### MEETUPS ###
+### Create a new meetup
 POST http://localhost:8080/meetups HTTP/1.1
 Content-Type: application/json
 
@@ -18,10 +20,27 @@ Content-Type: application/json
 ### GET ALL MEETUPS
 GET http://localhost:8080/meetups HTTP/1.1
 
-### GET MEETUP BY ID
-GET http://localhost:8080/meetups/6650c048c76f4aba38a189f1 HTTP/1.1
+### GET MEETUP BY id
+GET http://localhost:8080/meetups/6650da8dbb516f46ada85449x HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicm9kcmlnbyIsImlhdCI6MTcxNjY3MTUwMywiZXhwIjoxNzE2ODQ0MzAzfQ.MGJHILbUylSKz9EhNTtOlGzPys8zs_XHyAz-ItintAE
 
 ### DELETE MEETUP BY ID
-DELETE http://localhost:8080/meetups/6650c09dc76f4aba38a189f6 HTTP/1.1
+DELETE http://localhost:8080/meetups/6650da8dbb516f46ada85449 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicm9kcmlnbyIsImlhdCI6MTcxNjY3MTUwMywiZXhwIjoxNzE2ODQ0MzAzfQ.MGJHILbUylSKz9EhNTtOlGzPys8zs_XHyAz-ItintAE
+
+### AUTHENTICATION ###
+### GET current profile (based on the jwt token)
+GET http://localhost:8080/auth/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicm9kcmlnbyIsImlhdCI6MTcxNjY3MTUwMywiZXhwIjoxNzE2ODQ0MzAzfQ.MGJHILbUylSKz9EhNTtOlGzPys8zs_XHyAz-ItintAE
+
+### POST /auth/login
+POST http://localhost:8080/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "rodrigo",
+  "password": "cabrera"
+}
 
 ###
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicm9kcmlnbyIsImlhdCI6MTcxNjY3MTUwMywiZXhwIjoxNzE2ODQ0MzAzfQ.MGJHILbUylSKz9EhNTtOlGzPys8zs_XHyAz-ItintAE

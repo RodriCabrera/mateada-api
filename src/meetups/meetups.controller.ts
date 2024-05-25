@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
@@ -10,6 +11,7 @@ import {
 import { MeetupsService } from './meetups.service';
 import { CreateMeetupDto, UpdateMeetupDto } from './meetup.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { Public } from 'src/auth/constants';
 
 @ApiTags('Meetups')
 @Controller('meetups')
@@ -21,23 +23,38 @@ export class MeetupsController {
     return this.meetupsService.create(createMeetupDto);
   }
 
+  @Public()
   @Get()
   async findAll() {
     return this.meetupsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.meetupsService.findOne(id);
+  async findOne(@Param('id') id: string) {
+    try {
+      return await this.meetupsService.findOne(id);
+    } catch (error) {
+      throw new NotFoundException('Meetup not found');
+    }
   }
 
   @Put(':id')
   update(@Param('id') id: string, @Body() updateMeetupDto: UpdateMeetupDto) {
-    return this.meetupsService.update(id, updateMeetupDto);
+    try {
+      return this.meetupsService.update(id, updateMeetupDto);
+    } catch (error) {
+      throw new NotFoundException('Meetup not found');
+    }
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.meetupsService.delete(id);
+  async remove(@Param('id') id: string) {
+    try {
+      await this.meetupsService.delete(id).then(() => {
+        return `Meetup with id ${id} has been deleted`;
+      });
+    } catch (error) {
+      throw new NotFoundException('Meetup not found');
+    }
   }
 }

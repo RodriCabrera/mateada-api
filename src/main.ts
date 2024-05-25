@@ -26,7 +26,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   // HELMET
-  app.use(helmet());
+  // app.use(helmet());
 
   await app.listen(process.env.PORT || 3000);
 }
