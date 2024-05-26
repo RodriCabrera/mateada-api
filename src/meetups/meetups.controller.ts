@@ -49,12 +49,11 @@ export class MeetupsController {
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    try {
-      await this.meetupsService.delete(id).then(() => {
-        return `Meetup with id ${id} has been deleted`;
+    return this.meetupsService
+      .delete(id)
+      .then((res) => res)
+      .catch(() => {
+        throw new NotFoundException('Meetup not found');
       });
-    } catch (error) {
-      throw new NotFoundException('Meetup not found');
-    }
   }
 }
