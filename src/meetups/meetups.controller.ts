@@ -11,7 +11,7 @@ import {
 import { MeetupsService } from './meetups.service';
 import { CreateMeetupDto, UpdateMeetupDto } from './meetup.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from 'src/auth/constants';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @ApiTags('Meetups')
 @Controller('meetups')

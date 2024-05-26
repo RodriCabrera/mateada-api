@@ -22,11 +22,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuY
 GET http://localhost:8080/meetups HTTP/1.1
 
 ### GET MEETUP BY id
-GET http://localhost:8080/meetups/66525fbd753591d46020294e7 HTTP/1.1
+GET http://localhost:8080/meetups/66533fc25baeb8ea468c9b90 HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicm9kcmlnbyIsImlhdCI6MTcxNjY3MTUwMywiZXhwIjoxNzE2ODQ0MzAzfQ.MGJHILbUylSKz9EhNTtOlGzPys8zs_XHyAz-ItintAE
 
 ### DELETE MEETUP BY ID
-DELETE http://localhost:8080/meetups/66525fbd753591d4602094e7 HTTP/1.1
+DELETE http://localhost:8080/meetups/66533fc25baeb8ea468c9b90 HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoicm9kcmlnbyIsImlhdCI6MTcxNjY3MTUwMywiZXhwIjoxNzE2ODQ0MzAzfQ.MGJHILbUylSKz9EhNTtOlGzPys8zs_XHyAz-ItintAE
 
 ### AUTHENTICATION ###

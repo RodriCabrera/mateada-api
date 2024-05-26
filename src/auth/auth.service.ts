@@ -48,4 +48,11 @@ export class AuthService {
 
     return this.login(user);
   }
+
+  async logout({ username }: LoginRequestDto): Promise<void> {
+    const user = await this.usersService.findOne(username);
+    if (!user) {
+      throw new BadRequestException();
+    }
+  }
 }
