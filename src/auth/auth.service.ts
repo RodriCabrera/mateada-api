@@ -22,14 +22,10 @@ export class AuthService {
     }
 
     // TODO: Implement password hashing
-    // const isMatch: boolean = bcrypt.compareSync(password, user.password);
-    const isMatch = password === user.password;
-    if (!isMatch) {
+    // const isPassMatch: boolean = bcrypt.compareSync(password, user.password);
+    const isPassMatch = password === user.password;
+    if (!isPassMatch) {
       throw new BadRequestException('Password does not match');
-    }
-
-    if (user?.password !== password) {
-      throw new UnauthorizedException();
     }
 
     const payload = { sub: user.userId, username: user.username };
